@@ -14,10 +14,12 @@ else
 	sed -i "s/database_name_here/$SQL_DATABASE/g" ../../../wordpress/wp-config-sample.php
 	mv ../../../wordpress/* /var/www/wordpress/
 	cp /var/www/wordpress/wp-config-sample.php /var/www/wordpress/wp-config.php
-	 wp core install \
- --allow-root --path=var/www/wordpress --url=bgales.42.fr\
-  --title="biere et petanque" --admin_user=bgales\
-   --admin_password=toto --admin_email=bjmgales@gmail.com
+	 wp --allow-root core install \
+ 		 --path=var/www/wordpress --url=bgales.42.fr\
+  			--title="biere et petanque" --admin_user=bgales\
+  				 --admin_password=toto --admin_email=bjmgales@gmail.com
+	wp user create --allow-root bob bob@bob.com \
+		--user_pass="toto" --path=var/www/wordpress
 
 fi
 
