@@ -14,6 +14,11 @@ else
 	sed -i "s/database_name_here/$SQL_DATABASE/g" ../../../wordpress/wp-config-sample.php
 	mv ../../../wordpress/* /var/www/wordpress/
 	cp /var/www/wordpress/wp-config-sample.php /var/www/wordpress/wp-config.php
+	 wp core install \
+ --allow-root --path=var/www/wordpress --url=bgales.42.fr\
+  --title="biere et petanque" --admin_user=bgales\
+   --admin_password=toto --admin_email=bjmgales@gmail.com
+
 fi
 
 /usr/sbin/php-fpm7.3 -F

@@ -9,13 +9,13 @@ RUN apt-get install -y vim\
 	php-mysql
 
 COPY ./conf/www.conf /etc/php/7.3/fpm/pool.d/
+COPY ./tools/wp-config.sh /usr/local/bin
 
 RUN wget https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
 RUN chmod +x wp-cli.phar
 RUN mv wp-cli.phar /usr/local/bin/wp
 
 RUN mkdir /run/php/
-COPY ./tools/wp-config.sh /usr/local/bin
 RUN chmod +x ./usr/local/bin/wp-config.sh
 EXPOSE 9000
 
