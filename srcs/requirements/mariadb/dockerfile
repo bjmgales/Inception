@@ -1,0 +1,15 @@
+FROM debian:buster
+
+RUN apt update -y
+RUN apt upgrade -y
+RUN apt-get install -y mariadb-server\
+	mariadb-client\
+	vim
+RUN rm -rf /var/lib/mysql/aria_log.00000001
+COPY ./conf/50-server.cnf /etc/mysql/mariadb.conf.d/50-server.cnf
+COPY ./tools/mdb.sh /usr/local/bin/
+RUN chmod +x ./usr/local/bin/mdb.sh
+RUN chown  -R mysql:mysql /var/lib/mysql
+EXPOSE 3306
+ENTRYPOINT ["sh", "/usr/local/bin/mdb.sh" ]
+CMD ["mysqld", "--bind-address=0.0.0.0"]
