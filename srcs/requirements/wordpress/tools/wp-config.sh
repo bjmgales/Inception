@@ -1,3 +1,4 @@
+sleep 5
 if [ -f /var/www/wordpress/wp-config.php ]
 then
 	echo "wordpress already downloaded"
