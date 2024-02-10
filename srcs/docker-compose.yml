@@ -65,11 +65,11 @@ volumes:
     driver_opts:
       type: none
       o: 'bind'
-      device: /Users/gales/data/wordpress_db
+      device: /home/bgales/data/wordpress_db
   mariadb:
     driver: local
     driver_opts:
       type: none
       o: 'bind'
-      device: /Users/gales/data/mariadb
+      device: /home/bgales/data/mariadb
 
