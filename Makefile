@@ -9,8 +9,8 @@ re:
 clean: confirm_clean
 
 	@docker stop $$(docker ps -qa);\
-	rm -rf ~/data/wordpress_db/*;\
-	rm -rf ~/data/mariadb/*;\
+	sudo rm -rf ~/data/wordpress_db/*;\
+	sudo rm -rf ~/data/mariadb/*;\
 	docker rm $$(docker ps -qa);\
 	docker rmi -f $$(docker images -qa);\
 	docker volume rm srcs_mariadb;\
