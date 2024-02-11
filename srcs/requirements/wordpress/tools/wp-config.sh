@@ -3,9 +3,6 @@ if [ -f /var/www/wordpress/wp-config.php ]
 then
 	echo "wordpress already downloaded"
 else
-
-####### MANDATORY PART ##########
-
 	wget http://wordpress.org/latest.tar.gz
 	tar xfz latest.tar.gz
 	rm -rf latest.tar.gz
